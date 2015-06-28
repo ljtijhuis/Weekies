@@ -1,0 +1,3 @@
+weekies_recipes_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: WeekiesRecipesBundle:Default:index }

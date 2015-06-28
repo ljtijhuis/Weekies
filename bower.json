@@ -1,9 +1,0 @@
-{
-  "name": "weekiessymfony",
-  "version": "0.0.0",
-  "dependencies": {
-    "detectizr": "latest",
-    "jquery": "~1.10.2"
-  },
-  "devDependencies": {}
-}

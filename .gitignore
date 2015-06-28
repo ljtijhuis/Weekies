@@ -1,36 +1,12 @@
-/web/bundles/
 /app/bootstrap.php.cache
 /app/cache/*
-/app/config/parameters.yml
-/app/logs/*
 !app/cache/.gitkeep
-!app/logs/.gitkeep
-/build/
-/vendor/
-/bin/
-/composer.phar
-
-# Start of symfony-generator
-._*
-.DS_Store
-.vagrant
-# Symfony
-/web/bundles/
-/app/bootstrap.php.cache
-/app/cache/*
 /app/config/parameters.yml
 /app/logs/*
-/build/
-/vendor/
+!app/logs/.gitkeep
+/app/phpunit.xml
 /bin/
 /composer.phar
-# Yeoman
-node_modules
-.tmp
-.sass-cache
-web/bower_components
-web/dist
-web/css
-app/dist
-# End of symfony-generator
+/vendor/
+/web/bundles/
 /nbproject/private/

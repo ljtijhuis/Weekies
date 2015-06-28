@@ -1,0 +1,4 @@
+services:
+#    weekies_recipes.example:
+#        class: Weekies\RecipesBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
