@@ -20,13 +20,17 @@ class SuggesterSettings {
     private $dinnerEntries;
     
     public function __construct() {
-        $dinnerEntries = new ArrayCollection();
+        $this->dinnerEntries = new ArrayCollection();
     }
     
     public function addDinnerEntry(DinnerEntry $entry) {
-        $dinnerEntries->add($entry);
+        $this->dinnerEntries->add($entry);
     }
     
+    public function removeDinnerEntry(DinnerEntry $entry) {
+        $this->dinnerEntries->removeElement($entry);
+    }
+
     public function getDinnerEntries() {
         return $this->dinnerEntries;
     }

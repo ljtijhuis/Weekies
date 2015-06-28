@@ -11,3 +11,7 @@
 /web/bundles/
 /nbproject/private/
 .DS_Store
+
+*.sublime-project
+
+*.sublime-workspace

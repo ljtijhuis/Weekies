@@ -3,20 +3,24 @@
 namespace Weekies\WeekiesBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Weekies\WeekiesBundle\Model\DinnerEntry as DinnerEntry;
 use Symfony\Component\HttpFoundation\Request;
+
+use Weekies\WeekiesBundle\Model\SuggesterSettings;
+use Weekies\WeekiesBundle\Model\DinnerEntry;
+use Weekies\WeekiesBundle\Form\Type\SuggesterSettingsType;
+
+
 
 class SuggesterController extends Controller
 {
     public function setupAction(Request $request)
     {
-        $dinnerEntry = new DinnerEntry();
+        $suggesterSettings = new SuggesterSettings();
+
+        $suggesterSettings->addDinnerEntry(new DinnerEntry());
+        $suggesterSettings->addDinnerEntry(new DinnerEntry());
         
-        $form = $this->createFormBuilder($dinnerEntry)
-            ->add('date', 'date')
-            ->add('amountOfPeople', 'integer')
-            ->add('save', 'submit', array('label' => 'Genereer menu'))
-            ->getForm();
+        $form = $this->createForm(new SuggesterSettingsType(), $suggesterSettings);
         
         $form->handleRequest($request);
 
