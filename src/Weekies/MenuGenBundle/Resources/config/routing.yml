@@ -1,0 +1,3 @@
+weekies_menu_gen_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: WeekiesMenuGenBundle:Default:index }

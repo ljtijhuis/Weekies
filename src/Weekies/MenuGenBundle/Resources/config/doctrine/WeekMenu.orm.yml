@@ -1,0 +1,25 @@
+Weekies\MenuGenBundle\Entity\WeekMenu:
+    type: entity
+    table: null
+    repositoryClass: Weekies\MenuGenBundle\Entity\WeekMenuRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        weekStart:
+            type: date
+            column: weekStart
+        weekEnd:
+            type: date
+            column: weekEnd
+    oneToMany:
+        dinners:
+            targetEntity: Dinner
+            mappedBy: weekMenu
+    lifecycleCallbacks: {  }

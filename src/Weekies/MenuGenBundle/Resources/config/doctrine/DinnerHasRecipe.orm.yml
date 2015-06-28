@@ -1,0 +1,23 @@
+Weekies\MenuGenBundle\Entity\DinnerHasRecipe:
+    type: entity
+    table: null
+    repositoryClass: Weekies\MenuGenBundle\Entity\DinnerHasRecipeRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        accepted:
+            type: boolean
+    manyToOne:
+        dinner:
+            targetEntity: Dinner
+            inversedBy: dinnerRecipe
+            joinColumn:
+                name: dinnerId
+                referencedColumnName: id
+        recipe:
+            targetEntity: Weekies\MenuGenBundle\Model\RecipeInterface
+    lifecycleCallbacks: {  }

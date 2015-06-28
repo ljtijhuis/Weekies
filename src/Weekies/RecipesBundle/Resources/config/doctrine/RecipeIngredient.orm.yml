@@ -1,0 +1,32 @@
+Weekies\RecipesBundle\Entity\RecipeIngredient:
+    type: entity
+    table: null
+    repositoryClass: Weekies\RecipesBundle\Entity\RecipeIngredientRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        quantity:
+            type: string
+            length: 255
+        quantityUnit:
+            type: string
+            length: 255
+            column: quantityUnit
+    manyToOne:
+        recipe:
+            targetEntity: Recipe
+            inversedBy: recipeIngredients
+            joinColumn:
+                name: recipeId
+                referencedColumnName: id
+        ingredient:
+            targetEntity: Ingredient
+            inversedBy: ingredientRecipes
+            joinColumn:
+                name: ingredientId
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

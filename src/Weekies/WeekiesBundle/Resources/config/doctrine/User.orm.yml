@@ -1,0 +1,11 @@
+Weekies\WeekiesBundle\Entity\User:
+    type: entity
+    table: fos_user
+    repositoryClass: Weekies\WeekiesBundle\Entity\UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    lifecycleCallbacks: {  }

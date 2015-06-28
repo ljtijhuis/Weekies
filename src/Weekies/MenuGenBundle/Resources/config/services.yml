@@ -1,0 +1,4 @@
+services:
+#    weekies_menu_gen.example:
+#        class: Weekies\MenuGenBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

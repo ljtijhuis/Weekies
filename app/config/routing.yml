@@ -1,3 +1,14 @@
+weekies_weekies:
+    resource: "@WeekiesWeekiesBundle/Resources/config/routing.yml"
+    prefix:   /
+
+weekies_menu_gen:
+    resource: "@WeekiesMenuGenBundle/Resources/config/routing.yml"
+    prefix:   /menuGenerator
+
 weekies_recipes:
     resource: "@WeekiesRecipesBundle/Resources/config/routing.yml"
     prefix:   /recipes
+    
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

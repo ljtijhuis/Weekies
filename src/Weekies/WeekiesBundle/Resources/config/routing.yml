@@ -1,0 +1,15 @@
+setup:
+    path:     /setup
+    defaults: { _controller: WeekiesWeekiesBundle:Suggester:setup }
+
+suggest:
+    path:     /suggest
+    defaults: { _controller: WeekiesWeekiesBundle:Suggester:suggest }
+
+shopping_list:
+    path:     /shoppingList
+    defaults: { _controller: WeekiesWeekiesBundle:Suggester:shoppingList }
+
+stock:
+    path:     /stock
+    defaults: { _controller: WeekiesWeekiesBundle:Suggester:stock }
