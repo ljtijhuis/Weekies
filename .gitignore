@@ -33,3 +33,4 @@ web/dist
 web/css
 app/dist
 # End of symfony-generator
+/nbproject/private/
