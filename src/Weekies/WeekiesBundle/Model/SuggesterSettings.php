@@ -16,11 +16,31 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @author Lars
  */
 class SuggesterSettings {
-    //put your code here
+    
+    private $periodStart;
+    private $periodEnd;
     private $dinnerEntries;
     
     public function __construct() {
+        $this->periodStart = new \DateTime();
+        $this->periodEnd = new \DateTime('+ 6 days');
         $this->dinnerEntries = new ArrayCollection();
+    }
+    
+    public function getPeriodStart() {
+        return $this->periodStart;
+    }
+    
+    public function setPeriodStart($periodStart) {
+        $this->periodStart = $periodStart;
+    }
+    
+    public function getPeriodEnd() {
+        return $this->periodEnd;
+    }
+    
+    public function setPeriodEnd($periodEnd) {
+        $this->periodEnd = $periodEnd;
     }
     
     public function addDinnerEntry(DinnerEntry $entry) {

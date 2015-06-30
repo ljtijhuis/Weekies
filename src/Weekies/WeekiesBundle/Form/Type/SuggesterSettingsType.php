@@ -10,6 +10,12 @@ class SuggesterSettingsType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $builder->add('PeriodStart', 'genemu_jquerydate', array(
+            'widget' => 'single_text'
+        ));
+        $builder->add('PeriodEnd', 'genemu_jquerydate', array(
+            'widget' => 'single_text'
+        ));
         $builder->add('DinnerEntries', 'collection', array(
             'type' => new DinnerEntryType(), 
             'allow_add' => 'true'

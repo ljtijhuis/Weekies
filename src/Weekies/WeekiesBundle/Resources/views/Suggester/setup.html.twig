@@ -9,11 +9,14 @@
 {{ form_widget(form) }}
 {{ form_end(form) }}
 
+
 {{ message }}
 {% endblock %}
 
 
 {% block javascripts %}
+
+{{ form_javascript(form) }}
 
 <script>
 

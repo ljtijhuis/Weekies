@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Genemu\Bundle\FormBundle\GenemuFormBundle(),
             new Weekies\RecipesBundle\WeekiesRecipesBundle(),
             new Weekies\MenuGenBundle\WeekiesMenuGenBundle(),
             new Weekies\WeekiesBundle\WeekiesWeekiesBundle(),

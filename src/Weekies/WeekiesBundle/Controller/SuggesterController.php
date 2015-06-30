@@ -16,9 +16,6 @@ class SuggesterController extends Controller
     public function setupAction(Request $request)
     {
         $suggesterSettings = new SuggesterSettings();
-
-        $suggesterSettings->addDinnerEntry(new DinnerEntry());
-        $suggesterSettings->addDinnerEntry(new DinnerEntry());
         
         $form = $this->createForm(new SuggesterSettingsType(), $suggesterSettings);
         
