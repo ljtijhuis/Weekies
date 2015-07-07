@@ -16,8 +16,17 @@ class RecipesCrawler {
         //get recipe pages
         $seedPage = file_get_contents($crawler->getSeedPage());
 
-        foreach ($crawler->getRecipeURLs($seedPage) as $recipePageURL) {
-            $recipe = parseRecipe(file_get_contents($recipePageURL), $crawler);
+        $HTMLCrawler = new Crawler($seedPage);
+        
+        $debugLimit = 10;
+        $count = 0;
+        foreach ($crawler->getRecipeURLs($HTMLCrawler) as $recipePageURL) {
+            $recipe = static::parseRecipe(file_get_contents($recipePageURL), $crawler);
+            
+            if ($count > $debugLimit) {
+                break;
+            }
+            $count++;
 
             //TODO store recipe? build in a check if it already exists?
         }
@@ -29,18 +38,23 @@ class RecipesCrawler {
         $HTMLCrawler = new Crawler($html);
 
         //title
+        $title = $HTMLCrawler->filter($crawler->getTitleSelector())->text();
 
+        echo $title . "<br>" ;
         //description
+        $description = $HTMLCrawler->filter($crawler->getDescriptionSelector())->text();
+        
+        echo $description . "<br><br>";
 
         //amount of people
 
         //cooking time
 
+        //rating
 
         //ingredients
-        $ingredients = $HTMLCrawler->filter($crawler->getIngredientsSelector);
-        var_dump($ingredients->html());
-
+        //$ingredients = $HTMLCrawler->filter($crawler->getIngredientsSelector());
+        
         //instructions
 
         //images

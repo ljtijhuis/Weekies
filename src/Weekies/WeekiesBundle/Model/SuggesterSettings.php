@@ -19,6 +19,7 @@ class SuggesterSettings {
     
     private $periodStart;
     private $periodEnd;
+    private $amountOfPeople;
     private $dinnerEntries;
     
     public function __construct() {
@@ -41,6 +42,14 @@ class SuggesterSettings {
     
     public function setPeriodEnd($periodEnd) {
         $this->periodEnd = $periodEnd;
+    }
+    
+    public function getAmountOfPeople(){
+        return $this->amountOfPeople;
+    }
+    
+    public function setAmountOfPeople($amountOfPeople) {
+        $this->amountOfPeople = $amountOfPeople;
     }
     
     public function addDinnerEntry(DinnerEntry $entry) {

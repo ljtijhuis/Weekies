@@ -8,4 +8,16 @@ namespace Weekies\CrawlRecipesBundle\Model;
  */
 interface CrawlerInterface {
     
+    function getBaseURL();
+    
+    function getSeedPage();
+    
+    function getRecipeURLs($seedPageHTMLCrawler);
+    
+    function getTitleSelector();
+    
+    function getDescriptionSelector();
+    
+    function getIngredientsSelector();
+    
 }

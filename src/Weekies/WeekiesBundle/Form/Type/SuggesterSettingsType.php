@@ -16,6 +16,10 @@ class SuggesterSettingsType extends AbstractType
         $builder->add('PeriodEnd', 'genemu_jquerydate', array(
             'widget' => 'single_text'
         ));
+        $builder->add('AmountOfPeople', 'integer');
+        $builder->add('ShowDinnerEntries', 'button', array(
+            'label' => 'Toon details'
+        ));
         $builder->add('DinnerEntries', 'collection', array(
             'type' => new DinnerEntryType(), 
             'allow_add' => 'true'

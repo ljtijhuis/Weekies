@@ -1,16 +1,22 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}WeekiesWeekiesBundle:Suggester:setup{% endblock %}
+{#% block title %}WeekiesWeekiesBundle:Suggester:setup{% endblock %#}
 
 {% block body %}
-<h1>Welcome to the Suggester:setup page</h1>
+<h1>{{ 'SETUP_PAGE_HEADER' | trans }}</h1>
+
+{{ 'SETUP_PAGE_INTRO' | trans }}
 
 {{ form_start(form) }}
-{{ form_widget(form) }}
+    {{ form_errors(form) }}
+
+    {{ form_row(form.PeriodStart) }}
+    {{ form_row(form.PeriodEnd) }}
+    {{ form_row(form.AmountOfPeople) }}
+    {{ form_row(form.ShowDinnerEntries) }}
+    {{ form_row(form.DinnerEntries) }}
 {{ form_end(form) }}
 
-
-{{ message }}
 {% endblock %}
 
 

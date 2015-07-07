@@ -4,15 +4,15 @@ namespace Weekies\CrawlRecipesBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Weekies\CrawlRecipesBundle\Model\RecipesCrawler;
+use Weekies\CrawlRecipesBundle\Model\AllerhandeCrawler;
 
 class DefaultController extends Controller
 {
-    public function indexAction($name)
+    public function allerhandeAction()
     {
-        $html = file_get_contents('');
 
-        RecipesCrawler::parseRecipe($html);
+        RecipesCrawler::crawlRecipes(new AllerhandeCrawler());
 
-        return $this->render('WeekiesCrawlRecipesBundle:Default:index.html.twig', array('name' => $name));
+       // return $this->render('WeekiesCrawlRecipesBundle:Default:index.html.twig', array('name' => $name));
     }
 }
