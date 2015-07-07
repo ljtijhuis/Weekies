@@ -16,4 +16,15 @@ Weekies\RecipesBundle\Entity\Ingredient:
         ingredientRecipes:
             targetEntity: RecipeIngredient
             mappedBy: ingredient
+    manyToMany:
+        similarIngredients:
+          targetEntity: Ingredient
+          joinTable:
+            name: similarIngredients
+            joinColumns:
+              first_ingredient_id:
+                referencedColumnName: id
+            inverseJoinColumns:
+              second_ingredient_id:
+                referencedColumnName: id
     lifecycleCallbacks: {  }

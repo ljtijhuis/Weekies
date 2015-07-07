@@ -1,3 +1,7 @@
+weekies_crawl_recipes:
+    resource: "@WeekiesCrawlRecipesBundle/Resources/config/routing.yml"
+    prefix:   /crawl
+
 weekies_weekies:
     resource: "@WeekiesWeekiesBundle/Resources/config/routing.yml"
     prefix:   /

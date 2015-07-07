@@ -63,7 +63,6 @@ class Ingredient
     public function __construct()
     {
         $this->ingredientRecipes = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->similarIngredients = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -97,43 +96,5 @@ class Ingredient
     public function getIngredientRecipes()
     {
         return $this->ingredientRecipes;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $similarIngredients;
-
-
-    /**
-     * Add similarIngredients
-     *
-     * @param \Weekies\RecipesBundle\Entity\Ingredient $similarIngredients
-     * @return Ingredient
-     */
-    public function addSimilarIngredient(\Weekies\RecipesBundle\Entity\Ingredient $similarIngredients)
-    {
-        $this->similarIngredients[] = $similarIngredients;
-
-        return $this;
-    }
-
-    /**
-     * Remove similarIngredients
-     *
-     * @param \Weekies\RecipesBundle\Entity\Ingredient $similarIngredients
-     */
-    public function removeSimilarIngredient(\Weekies\RecipesBundle\Entity\Ingredient $similarIngredients)
-    {
-        $this->similarIngredients->removeElement($similarIngredients);
-    }
-
-    /**
-     * Get similarIngredients
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getSimilarIngredients()
-    {
-        return $this->similarIngredients;
     }
 }

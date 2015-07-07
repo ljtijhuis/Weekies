@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Weekies\RecipesBundle\WeekiesRecipesBundle(),
             new Weekies\MenuGenBundle\WeekiesMenuGenBundle(),
             new Weekies\WeekiesBundle\WeekiesWeekiesBundle(),
+            new Weekies\CrawlRecipesBundle\WeekiesCrawlRecipesBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

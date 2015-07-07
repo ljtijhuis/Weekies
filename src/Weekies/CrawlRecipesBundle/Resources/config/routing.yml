@@ -1,0 +1,3 @@
+weekies_crawl_recipes_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: WeekiesCrawlRecipesBundle:Default:index }

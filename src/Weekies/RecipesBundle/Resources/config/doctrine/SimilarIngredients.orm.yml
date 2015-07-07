@@ -1,0 +1,11 @@
+Weekies\RecipesBundle\Entity\SimilarIngredients:
+    type: entity
+    table: null
+    repositoryClass: Weekies\RecipesBundle\Entity\SimilarIngredientsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    lifecycleCallbacks: {  }

@@ -24,7 +24,8 @@
         "doctrine/doctrine-migrations-bundle": "1.0.*",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "components/jquery": "^2.1",
-        "genemu/form-bundle": "^2.2"
+        "genemu/form-bundle": "^2.2",
+        "symfony/dom-crawler": "^2.7"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
