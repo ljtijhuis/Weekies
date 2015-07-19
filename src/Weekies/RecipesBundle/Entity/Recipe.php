@@ -125,4 +125,133 @@ class Recipe
     {
         return $this->recipeIngredients;
     }
+
+    
+    /**
+     * @var integer
+     */
+    private $amountOfPeople;
+
+    /**
+     * @var integer
+     */
+    private $cookingTime;
+
+    /**
+     * @var double
+     */
+    private $rating;
+
+    /**
+     * @var string
+     */
+    private $image;
+
+
+    /**
+     * Set amountOfPeople
+     *
+     * @param integer $amountOfPeople
+     * @return Recipe
+     */
+    public function setAmountOfPeople($amountOfPeople)
+    {
+        $this->amountOfPeople = $amountOfPeople;
+
+        return $this;
+    }
+
+    /**
+     * Get amountOfPeople
+     *
+     * @return integer 
+     */
+    public function getAmountOfPeople()
+    {
+        return $this->amountOfPeople;
+    }
+
+    /**
+     * Set cookingTime
+     *
+     * @param integer $cookingTime
+     * @return Recipe
+     */
+    public function setCookingTime($cookingTime)
+    {
+        $this->cookingTime = $cookingTime;
+
+        return $this;
+    }
+
+    /**
+     * Get cookingTime
+     *
+     * @return integer 
+     */
+    public function getCookingTime()
+    {
+        return $this->cookingTime;
+    }
+
+    /**
+     * Set rating
+     *
+     * @param \float $rating
+     * @return Recipe
+     */
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
+
+        return $this;
+    }
+
+    /**
+     * Get rating
+     *
+     * @return \float 
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     * @return Recipe
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string 
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    public function __toString() {
+        $str = $this->getName() . "<br>" . $this->getDescription()."<br>";
+        $str .= "#people: " . $this->getAmountOfPeople() . "<br>";
+        $str .= "cooking time: " . $this->getCookingTime() . "<br>";
+        $str .= "rating: " . $this->getRating() . "<br>Ingredients:<br>";
+
+        foreach ($this->getRecipeIngredients() as $ri) {
+            $str .= $ri->getQuantity() . " " .  $ri->getQuantityUnit() . " " . $ri->getIngredient()->getName() . "<br>";
+        }
+
+        $str .= "<img src=\"data:image/jpeg;base64," . base64_encode($this->getImage()) . "\" /><br><br>";
+
+        return $str;
+    }
 }

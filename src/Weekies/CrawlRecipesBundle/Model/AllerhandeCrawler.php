@@ -48,5 +48,33 @@ class AllerhandeCrawler implements CrawlerInterface {
         return "article > section.header > header > h2";
     }
 
+    public function getAmountOfPeopleSelector() {
+        return "article > section.teaser > ul > li > div > section > ul.short > li:nth-child(2) > span > a";
+    }
+
+
+    public function getAmountOfPeopleNumber($amountStr) {
+        return 4;
+    }
+
+    public function getCookingTimeSelector(){}
+
+    public function getCookingTimeMinutes($timeStr){
+        return 20;
+    }
+
+    public function getRatingSelector(){}
+
+    public function getRatingScaled($ratingStr){
+        return floatval(5);
+    }
+
+    public function getIngredients($HTMLCrawler){
+        return array();
+    }
+
+    public function getImageURL($HTMLCrawler){
+        return $HTMLCrawler->filter("article > section.teaser > ul > li")->attr("data-default-src");
+    }
 
 }

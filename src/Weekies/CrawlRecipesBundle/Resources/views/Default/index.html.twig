@@ -1,1 +1,13 @@
-Hello {{ name }}!
+{% extends "::base.html.twig" %}
+
+{% block body %}
+<h1>Crawling succes!</h1>
+
+<h2>Crawled recipes</h2>
+
+    {% for recipe in recipes %}
+        {{ recipe|raw }}
+    {% endfor %}
+
+{% endblock %}
+

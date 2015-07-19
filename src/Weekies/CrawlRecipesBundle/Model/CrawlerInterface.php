@@ -19,5 +19,21 @@ interface CrawlerInterface {
     function getDescriptionSelector();
     
     function getIngredientsSelector();
+
+    function getAmountOfPeopleSelector();
+
+    function getAmountOfPeopleNumber($amountStr);
+
+    function getCookingTimeSelector();
+
+    function getCookingTimeMinutes($timeStr);
+
+    function getRatingSelector();
+
+    function getRatingScaled($ratingStr);
+
+    function getIngredients($HTMLCrawler);
+
+    function getImageURL($HTMLCrawler);
     
 }

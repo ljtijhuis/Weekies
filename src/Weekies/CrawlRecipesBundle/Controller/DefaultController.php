@@ -11,8 +11,15 @@ class DefaultController extends Controller
     public function allerhandeAction()
     {
 
-        RecipesCrawler::crawlRecipes(new AllerhandeCrawler());
+        $recipes = RecipesCrawler::crawlRecipes(new AllerhandeCrawler());
+        
+        $em = $this->getDoctrine()->getManager();
 
-       // return $this->render('WeekiesCrawlRecipesBundle:Default:index.html.twig', array('name' => $name));
+        foreach ($recipes as $recipe) {
+            $em->persist($recipe);
+        }
+        $em->flush();
+
+        return $this->render('WeekiesCrawlRecipesBundle:Default:index.html.twig', array('recipes' => $recipes));
     }
 }
