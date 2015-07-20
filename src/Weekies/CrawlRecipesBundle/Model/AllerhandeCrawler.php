@@ -12,15 +12,14 @@ use Symfony\Component\DomCrawler\Crawler;
  */
 class AllerhandeCrawler implements CrawlerInterface {
     
+    public function getSource() {
+        return "Allerhande";
+    }
     
     public function getBaseURL() {
         return "http://www.ah.nl/";
     }
     
-    public function getIngredientsSelector() {
-        
-    }
-
     public function getRecipeURLs($seedPageHTMLCrawler) {
 
         $result = array();
@@ -49,27 +48,33 @@ class AllerhandeCrawler implements CrawlerInterface {
     }
 
     public function getAmountOfPeopleSelector() {
-        return "article > section.teaser > ul > li > div > section > ul.short > li:nth-child(2) > span > a";
+        return "article > section.teaser > ul > li > div > section > ul.short > li:nth-child(2) > span";
     }
 
 
     public function getAmountOfPeopleNumber($amountStr) {
-        return 4;
+        return explode (' ', $amountStr)[0];
     }
 
-    public function getCookingTimeSelector(){}
+    public function getCookingTimeSelector(){
+        return "article > section.teaser > ul > li > div > section > ul.short > li.cooking-time > ul > li";
+    }
 
     public function getCookingTimeMinutes($timeStr){
-        return 20;
+        //TODO: This is preparation time only, multiple timings are available per recipe (oven for example)
+        return explode (' ', $timeStr)[0];
     }
 
-    public function getRatingSelector(){}
+    public function getRatingSelector(){
+        return "article > section.content > div.content-wrapper > div > div > span:nth-child(1)";
+    }
 
     public function getRatingScaled($ratingStr){
-        return floatval(5);
+        return floatval($ratingStr);
     }
 
     public function getIngredients($HTMLCrawler){
+        $ingredientsSelector = "article > section.content > div.content-wrapper > section.js-ingredients.ingredients > ul";
         return array();
     }
 

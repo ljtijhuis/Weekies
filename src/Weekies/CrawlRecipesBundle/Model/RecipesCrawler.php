@@ -23,8 +23,11 @@ class RecipesCrawler {
         $count = 0;
 
         $recipes = array();
+
+$tmp =static::parseRecipe(file_get_contents("http://www.ah.nl/allerhande/recept/R-R373084/ovenschotel-met-suddervlees-en-groenten"), $crawler, "http://www.ah.nl/allerhande/recept/R-R373084/ovenschotel-met-suddervlees-en-groenten");
+
         foreach ($crawler->getRecipeURLs($HTMLCrawler) as $recipePageURL) {
-            $recipes[] = static::parseRecipe(file_get_contents($recipePageURL), $crawler);
+            $recipes[] = static::parseRecipe(file_get_contents($recipePageURL), $crawler, $recipePageURL);
             
             if ($count > $debugLimit) {
                 break;
@@ -34,10 +37,12 @@ class RecipesCrawler {
             //TODO store recipe? build in a check if it already exists?
         }
 
+        $recipes[] = $tmp;
+
         return $recipes;
     }
 
-    public static function parseRecipe($html, CrawlerInterface $crawler) {
+    public static function parseRecipe($html, CrawlerInterface $crawler, $recipePageURL) {
 
         $HTMLCrawler = new Crawler($html);
 
@@ -75,6 +80,10 @@ class RecipesCrawler {
         $recipe->setCookingTime($cookingTime);
         $recipe->setRating($rating);
         $recipe->setImage($image);
+
+        //store origin
+        $recipe->setSource($crawler->getSource());
+        $recipe->setURL($recipePageURL);
 
         foreach ($ingredients as $ingredient => $amountUnit) {
             $ing = new Ingredient();

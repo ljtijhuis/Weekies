@@ -7,6 +7,8 @@ namespace Weekies\CrawlRecipesBundle\Model;
  * @author Lars
  */
 interface CrawlerInterface {
+
+    function getSource();
     
     function getBaseURL();
     
@@ -17,8 +19,6 @@ interface CrawlerInterface {
     function getTitleSelector();
     
     function getDescriptionSelector();
-    
-    function getIngredientsSelector();
 
     function getAmountOfPeopleSelector();
 

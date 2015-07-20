@@ -22,8 +22,18 @@ Weekies\RecipesBundle\Entity\Recipe:
             type: float
         image:
             type: blob
+        source:
+            type: string
+            length: 255
+        url:
+            type: string
+            length: 512
     oneToMany:
             recipeIngredients:
                 targetEntity: RecipeIngredient
                 mappedBy: recipe
+                cascade: ["persist"]
+    uniqueConstraints:
+        search_idx:
+            columns: [ url ]
     lifecycleCallbacks: {  }

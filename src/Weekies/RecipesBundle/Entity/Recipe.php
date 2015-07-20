@@ -24,6 +24,38 @@ class Recipe
      */
     private $description;
 
+    /**
+     * @var integer
+     */
+    private $amountOfPeople;
+
+    /**
+     * @var integer
+     */
+    private $cookingTime;
+
+    /**
+     * @var float
+     */
+    private $rating;
+
+    /**
+     * @var string
+     */
+    private $image;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $recipeIngredients;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->recipeIngredients = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -80,73 +112,6 @@ class Recipe
     {
         return $this->description;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $recipeIngredients;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->recipeIngredients = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add recipeIngredients
-     *
-     * @param \Weekies\RecipesBundle\Entity\RecipeIngredient $recipeIngredients
-     * @return Recipe
-     */
-    public function addRecipeIngredient(\Weekies\RecipesBundle\Entity\RecipeIngredient $recipeIngredients)
-    {
-        $this->recipeIngredients[] = $recipeIngredients;
-
-        return $this;
-    }
-
-    /**
-     * Remove recipeIngredients
-     *
-     * @param \Weekies\RecipesBundle\Entity\RecipeIngredient $recipeIngredients
-     */
-    public function removeRecipeIngredient(\Weekies\RecipesBundle\Entity\RecipeIngredient $recipeIngredients)
-    {
-        $this->recipeIngredients->removeElement($recipeIngredients);
-    }
-
-    /**
-     * Get recipeIngredients
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getRecipeIngredients()
-    {
-        return $this->recipeIngredients;
-    }
-
-    
-    /**
-     * @var integer
-     */
-    private $amountOfPeople;
-
-    /**
-     * @var integer
-     */
-    private $cookingTime;
-
-    /**
-     * @var double
-     */
-    private $rating;
-
-    /**
-     * @var string
-     */
-    private $image;
-
 
     /**
      * Set amountOfPeople
@@ -197,7 +162,7 @@ class Recipe
     /**
      * Set rating
      *
-     * @param \float $rating
+     * @param float $rating
      * @return Recipe
      */
     public function setRating($rating)
@@ -210,7 +175,7 @@ class Recipe
     /**
      * Get rating
      *
-     * @return \float 
+     * @return float 
      */
     public function getRating()
     {
@@ -240,6 +205,39 @@ class Recipe
         return $this->image;
     }
 
+    /**
+     * Add recipeIngredients
+     *
+     * @param \Weekies\RecipesBundle\Entity\RecipeIngredient $recipeIngredients
+     * @return Recipe
+     */
+    public function addRecipeIngredient(\Weekies\RecipesBundle\Entity\RecipeIngredient $recipeIngredients)
+    {
+        $this->recipeIngredients[] = $recipeIngredients;
+
+        return $this;
+    }
+
+    /**
+     * Remove recipeIngredients
+     *
+     * @param \Weekies\RecipesBundle\Entity\RecipeIngredient $recipeIngredients
+     */
+    public function removeRecipeIngredient(\Weekies\RecipesBundle\Entity\RecipeIngredient $recipeIngredients)
+    {
+        $this->recipeIngredients->removeElement($recipeIngredients);
+    }
+
+    /**
+     * Get recipeIngredients
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRecipeIngredients()
+    {
+        return $this->recipeIngredients;
+    }
+
     public function __toString() {
         $str = $this->getName() . "<br>" . $this->getDescription()."<br>";
         $str .= "#people: " . $this->getAmountOfPeople() . "<br>";
@@ -253,5 +251,61 @@ class Recipe
         $str .= "<img src=\"data:image/jpeg;base64," . base64_encode($this->getImage()) . "\" /><br><br>";
 
         return $str;
+    }
+    /**
+     * @var string
+     */
+    private $source;
+
+    /**
+     * @var string
+     */
+    private $url;
+
+
+    /**
+     * Set source
+     *
+     * @param string $source
+     * @return Recipe
+     */
+    public function setSource($source)
+    {
+        $this->source = $source;
+
+        return $this;
+    }
+
+    /**
+     * Get source
+     *
+     * @return string 
+     */
+    public function getSource()
+    {
+        return $this->source;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     * @return Recipe
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string 
+     */
+    public function getUrl()
+    {
+        return $this->url;
     }
 }

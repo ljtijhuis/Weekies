@@ -10,11 +10,13 @@ class DefaultController extends Controller
 {
     public function allerhandeAction()
     {
+        $em = $this->getDoctrine()->getManager();
+
+        //for now, clear out db
+        $em->createQuery('DELETE WeekiesRecipesBundle:Recipe r')->execute();
 
         $recipes = RecipesCrawler::crawlRecipes(new AllerhandeCrawler());
         
-        $em = $this->getDoctrine()->getManager();
-
         foreach ($recipes as $recipe) {
             $em->persist($recipe);
         }
