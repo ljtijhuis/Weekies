@@ -21,5 +21,21 @@ class LoadDummyRecipes implements FixtureInterface
         
         $manager->persist($recipe);
         $manager->flush();
+        
+        $ingredients = array("Paprika", "Gehakt", "Ui", "Knoflook", "Rode wijn", "Courgette", "Spaghetti");
+        
+        foreach ($ingredients as $i) {
+            $ingredient = new Ingredient();
+            $ingredient->setName($i);
+            $recipeIngredient = new RecipeIngredient();
+            $recipeIngredient->setIngredient($ingredient);
+            $recipeIngredient->setQuantity(1);
+            $recipeIngredient->setQuantityUnit("");
+            $recipeIngredient->setRecipe($recipe);
+            
+            $manager->persist($ingredient);
+            $manager->persist($recipeIngredient);
+        }
+        $manager->flush();
     }
 }
